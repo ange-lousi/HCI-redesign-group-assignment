@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Assignment 3</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<body style="background-color:cornflowerblue;">
+
+  <!-- Side Navigation -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:270px;"
+    id="mySidebar">
+    <a href="javascript:void(0)"><img class="w3-round  w3-animate-top w3-margin-left" src="./images/logo1.png"
+        style="width:25%;"></a>
+    <span onclick="w3_close()" class="w3-button w3-blue w3-right w3-xlarge" style="cursor:pointer"
+      title="Close Sidemenu" id="myOverlay"><i class="fa fa-remove"></i></span>
+
+    <p></p>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey"><i
+        class="w3-margin-right fa fa-plus-square"></i>ADD A NEW FILE</a>
+    <p></p>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey "
+      onclick="document.getElementById('id01').style.display='block'"><i class="w3-margin-right fa fa-pencil"></i>Share
+      File </a>
+    <p></p>
+    <a class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey w3-left-align" onclick="myFunc('Demo1')"><i
+        class="fa fa-inbox w3-margin-right"></i>Files (3)<i class="fa fa-caret-down w3-margin-left"></i></a>
+    <div id="Demo1" class="w3-hide w3-animate-left">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('File1');w3_close();" id="firstTab">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/file1.png" style="width:15%;"><span
+            class="w3-opacity w3-large">File 1</span>
+          <h6>:-))))))</h6>
+          <p>DO YOU LIKE SWEEET CHILLI SAUCE?</p>
+        </div>
+      </a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('File2');w3_close();">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/file1.png" style="width:15%;"><span
+            class="w3-opacity w3-large">File 2</span>
+          <p>What should we eat later for lunch? What about pizza?</p>
+        </div>
+      </a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('File3');w3_close();">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/file1.png" style="width:15%;"><span
+            class="w3-opacity w3-large">File 3</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
+      </a>
+    </div>
+    <p></p>
+    <a class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey w3-left-align" onclick="myFunc('Demo2')"
+      href="javascript:void(0)" class="w3-bar-item w3-button"><i class="fa fa-copy w3-margin-right"></i>Folders<i
+        class="fa fa-caret-down w3-margin-left"></i></a>
+    <div id="Demo2" class="w3-hide w3-animate-left">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('Folder1');w3_close();" id="firstTab">
+        <div class="w3-container">
+          <img class="w3-round  w3-animate-top" src="./images/folder.png" style="width:15%;"><span
+            class="w3-opacity w3-large">Folder 1</span>
+          <h6>:-)</h6>
+          <p>DO YOU LIKE my neighbour totoro?</p>
+        </div>
+      </a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('Folder2');w3_close();">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/folder.png" style="width:15%;"><span
+            class="w3-opacity w3-large">Folder 2</span>
+          <p>What should we eat later for lunch? What about pizza?</p>
+        </div>
+      </a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('Folder3');w3_close();">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/folder.png" style="width:15%;"><span
+            class="w3-opacity w3-large">Folder 3</span>
+          <p>Robert Downey, Jr. is better than lee min ho</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Shared Files for nav-->
+    <p></p>
+    <a class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey w3-left-align" onclick="myFunc('Demo3')"
+      href="javascript:void(0)" class="w3-bar-item w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>Shared
+      Files<i class="fa fa-caret-down w3-margin-left"></i></a>
+    <div id="Demo3" class="w3-hide w3-animate-left">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('Shared1');w3_close();" id="firstTab">
+        <div class="w3-container">
+          <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:15%;"><span
+            class="w3-opacity w3-large">File 1</span>
+          <h6>:-)</h6>
+          <p>DO YOU LIKE my neighbour totoro?</p>
+        </div>
+      </a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="doShare('Shared2');w3_close();">
+        <div class="w3-container">
+          <img class="w3-round w3-margin-right" src="./images/file1.png" style="width:15%;"><span
+            class="w3-opacity w3-large">File 2</span>
+          <p>Lee Min Ho or Robert Downey Jr??</p>
+        </div>
+      </a>
+    </div>
+    <p></p>
+    <a href="#" class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey w3-left-align"
+      class="w3-bar-item w3-button"><i class="fa fa-hourglass-end w3-margin-right"></i>Draft Files</a>
+    <p></p>
+    <a href="#" class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey w3-left-align"
+      class="w3-bar-item w3-button"><i class="fa fa-trash w3-margin-right"></i>Trash</a>
+    <p></p>
+    <br></br>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-indigo w3-button w3-hover-dark-grey "
+      onclick="document.getElementById('id03').style.display='block'"><i class="w3-margin-right fa fa-user"></i>Log Out
+    </a>
+  </nav>
+
+  <!-- Modal that pops up when you click on "Share File" -->
+  <div id="id01" class="w3-modal" style="z-index:4">
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-blue">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-blue w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Share Files :-)</h2>
+      </div>
+      <div class="w3-panel">
+        <label>ADD A NEW FILE:</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text">
+        <label>ADD EMAIL:</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text">
+        <label>ADD COMMENTS TO OTHER GROUP MEMBERS:</label>
+        <input class="w3-input w3-border w3-margin-bottom" style="height:150px"
+          placeholder="Hey leave some comments here to help you communicate with other group members">
+        <div class="w3-section">
+          <a class="w3-button w3-blue" onclick="document.getElementById('id01').style.display='none'">Cancel <i
+              class="fa fa-remove"></i></a>
+          <a class="w3-button w3-blue w3-right" onclick="document.getElementById('id02').style.display='block'">Share <i
+              class="fa fa-paper-plane"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----pop up window when u click on "share"-->
+  <div id="id02" class="w3-modal" style="z-index:50">
+    <div class="w3-container w3-padding w3-indigo">
+      <span onclick="document.getElementById('id02').style.display='none'"
+        class="w3-button w3-indigo w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+      <h2>Yeah you just shared the files :-)</h2>
+    </div>
+
+  </div>
+  <!---pop up window when u click on "log off"-->
+  <div id="id03" class="w3-modal" style="z-index:4">
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-blue">
+        <span onclick="document.getElementById('id03').style.display='none'"
+          class="w3-button w3-blue w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Are you sure you want to log out?</h2>
+      </div>
+      <div class="w3-panel">
+        <a class="w3-button w3-blue" onclick="document.getElementById('id03').style.display='none'">Yes <i
+            class="fa fa-check"></i></a>
+        <a class="w3-button w3-blue w3-right" onclick="document.getElementById('id03').style.display='none'">No <i
+            class="fa fa-remove"></i></a>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <!-- Overlay effect when opening the side navigation on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="Close Sidemenu" id="myOverlay"></div>
+
+  <!-- Page content -->
+  <div class="w3-main" style="margin-left:320px;">
+    <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-left w3-margin-top"
+      onclick="w3_open()"></i>
+    <a href="javascript:void(0)" class="w3-hide-large w3-red w3-button w3-right w3-margin-top w3-margin-right"
+      onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
+
+    <div id="File1" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file2.png" style="width:20%;">
+      <h5 class="w3-opacity">File 1</h5>
+      <h4><i class="fa fa-clock-o"></i> File 1, Sep 27, 2015.</h4>
+      <a class="w3-button w3-light-grey" href="#">Share<i class="w3-margin-left fa fa-mail-reply"></i></a>
+      <a class="w3-button w3-light-grey" href="#">Delete<i class="w3-margin-left fa fa-arrow-right"></i></a>
+      <a class="w3-button w3-light-grey" href="#">Download<i class="w3-margin-left fa fa-arrow-circle-o-down"></i></a>
+      <hr>
+      <h4>INTRODUCTION~~~~:</h4>
+      <p>DO YOU LIKE SWEEET CHILLI SAUCE? </p>
+      <label>ADD SOME COMMENTS TO OTHER GROUP MEMBERS:</label>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:80px"
+        placeholder="Hey leave some comments here to help you communicate with other group members">
+    </div>
+
+    <div id="File2" class="w3-container file">
+      <br>
+      <img class="w3-round w3-animate-top" src="./images/file2.png" style="width:20%;">
+      <h5 class="w3-opacity">File 2</h5>
+      <h4><i class="fa fa-clock-o"></i> File 2, Sep 25, 2020.</h4>
+      <a class="w3-button w3-light-grey">Share<i class="w3-margin-left fa fa-mail-reply"></i></a>
+      <a class="w3-button w3-light-grey">Delete<i class="w3-margin-left fa fa-arrow-right"></i></a>
+      <a class="w3-button w3-light-grey">Download<i class="w3-margin-left fa fa-arrow-circle-o-down"></i></a>
+      <hr>
+      <h4>INTRODUCTION~~~~:</h4>
+      <p>What should we eat later for lunch? What about pizza?</p>
+      <label>ADD SOME COMMENTS TO OTHER GROUP MEMBERS:</label>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:80px"
+        placeholder="Hey leave some comments here to help you communicate with other group members">
+    </div>
+
+    <div id="File3" class="w3-container file">
+      <br>
+      <img class="w3-round w3-animate-top" src="./images/file2.png" style="width:20%;">
+      <h5 class="w3-opacity">File 3</h5>
+      <h4><i class="fa fa-clock-o"></i> File 3, Sep 23, 2015.</h4>
+      <a class="w3-button w3-light-grey">Share<i class="w3-margin-left fa fa-mail-reply"></i></a>
+      <a class="w3-button w3-light-grey">Delete<i class="w3-margin-left fa fa-arrow-right"></i></a>
+      <a class="w3-button w3-light-grey">Download<i class="w3-margin-left fa fa-arrow-circle-o-down"></i></a>
+      <hr>
+      <h4>INTRODUCTION~~~~:</h4>
+      <p>Two hunters are out in the woods when one of them collapses. He’s not breathing and his eyes are glazed. The
+        other guy whips out his cell phone and calls 911.
+
+        “I think my friend is dead!” he yells. “What can I do?”
+
+        The operator says, “Calm down. First, let’s make sure he’s dead.”
+
+        There’s a silence, then a shot. Back on the phone, the guy says, “OK, now what?”</p>
+      <label>ADD SOME COMMENTS TO OTHER GROUP MEMBERS:</label>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:50px"
+        placeholder="Hey leave some comments here to help you communicate with other group members">
+    </div>
+
+    <div id="Folder1" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:20%;">
+      <h5 class="w3-opacity">Folder 1</h5>
+      <h4><i class="fa fa-clock-o"></i> Folder1, Sep 27, 2020.</h4>
+      <hr>
+    </div>
+
+    <div id="Folder2" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:20%;">
+      <h5 class="w3-opacity">Folder 2</h5>
+      <h4><i class="fa fa-clock-o"></i> Folder2, Sep 27, 2020.</h4>
+      <hr>
+    </div>
+
+    <div id="Folder3" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:20%;">
+      <h5 class="w3-opacity">Folder 3</h5>
+      <h4><i class="fa fa-clock-o"></i> Folder3, Sep 27, 2020.</h4>
+      <hr>
+    </div>
+
+    <div id="Shared1" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:20%;">
+      <h5 class="w3-opacity">File 1</h5>
+      <h4><i class="fa fa-clock-o"></i> File 1, Sep 27, 2020.</h4>
+      <hr>
+      <a class="w3-button w3-light-grey">Share<i class="w3-margin-left fa fa-mail-reply"></i></a>
+      <a class="w3-button w3-light-grey">Delete<i class="w3-margin-left fa fa-arrow-right"></i></a>
+      <a class="w3-button w3-light-grey">Download<i class="w3-margin-left fa fa-arrow-circle-o-down"></i></a>
+      <p></p>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:250px"
+        placeholder="Hey leave some comments here to help you communicate with other group members">
+
+    </div>
+
+    <div id="Shared2" class="w3-container file">
+      <br>
+      <img class="w3-round  w3-animate-top" src="./images/file1.png" style="width:20%;">
+      <h5 class="w3-opacity">File 2</h5>
+      <h4><i class="fa fa-clock-o"></i> File 2, Sep 27, 2020.</h4>
+      <hr>
+      <a class="w3-button w3-light-grey">Share<i class="w3-margin-left fa fa-mail-reply"></i></a>
+      <a class="w3-button w3-light-grey">Delete<i class="w3-margin-left fa fa-arrow-right"></i></a>
+      <a class="w3-button w3-light-grey">Download<i class="w3-margin-left fa fa-arrow-circle-o-down"></i></a>
+      <p></p>
+      <input class="w3-input w3-border w3-margin-bottom" style="height:250px"
+        placeholder="Hey leave some comments here to help you communicate with other group members">
+
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
